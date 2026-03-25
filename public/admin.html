@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>爱媛橙代理人 - 数字化管理中心</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div id="loginOverlay">
+        <div class="login-card">
+            <h2 style="color:#ea580c; margin-top:0;">🍊 系统登录</h2>
+            <input type="password" id="adminPwd" placeholder="管理权限密码">
+            <button class="btn-primary" style="width:100%" onclick="checkLogin()">立即进入系统</button>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-icon">🎉</div>
+            <h2 style="color:#ea580c; margin-top:0;">数据同步成功</h2>
+            <p style="color:#64748b; font-size:14px; margin-bottom:25px;">AI 分选数据已存入数据库，并自动生成区块链哈希指纹！</p>
+            <button class="btn-primary" style="width:100%" onclick="closeSuccessModal()">确认并返回</button>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <h2>爱媛中心控制台</h2>
+        <div class="menu-item active" onclick="switchTab('dashboard', this)">🏠 仪表盘看板</div>
+        <div class="menu-item" onclick="switchTab('batch', this)">📑 批次档案管理</div>
+        <div class="menu-item" onclick="switchTab('messages', this)">✉️ 客户咨询留言</div>
+        <div class="menu-item" onclick="switchTab('settings', this)">⚙️ 系统设置中心</div>
+        <div class="menu-item" onclick="location.reload()" style="color:#f87171; margin-top:50px;">🔒 退出系统</div>
+    </div>
+
+    <div class="main-content">
+        <div id="dashboard" class="view-section active">
+            <h2>📊 数智看板 (望龙镇站)</h2>
+            <div class="stat-grid">
+                <div class="stat-card"><h4>总监控批次</h4><div class="val" id="s-total">0</div></div>
+                <div class="stat-card"><h4>全域平均糖度</h4><div class="val" id="s-sugar">0°</div></div>
+                <div class="stat-card"><h4>待处理留言</h4><div class="val" id="s-msg">0</div></div>
+            </div>
+            <div class="card">
+                <h3>📢 系统通知</h3>
+                <p>当前系统连接正常。所有数据已同步至区块链存证节点。</p>
+            </div>
+        </div>
+
+        <div id="batch" class="view-section">
+            <h2>📑 批次档案管理</h2>
+            <div id="batchTools" style="display:none; margin-bottom:15px;">
+                <button class="btn-danger" onclick="deleteSelectedData()">🗑️ 批量删除选中批次</button>
+            </div>
+            
+            <div class="card">
+                <h3>📥 同步 AI 分选数据 (Excel)</h3>
+                <form id="uploadForm" onsubmit="handleUpload(event)">
+                    <div style="display:flex; gap:15px; align-items:center;">
+                        <input type="file" name="orangeExcel" accept=".xlsx, .xls" required style="border:none; padding:0; margin:0; width:auto; background:none;">
+                        <button type="submit" class="btn-primary" id="uploadBtn">一键同步并上链</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="super-col" style="display:none"><input type="checkbox" onclick="toggleAll('data', this)"></th>
+                            <th>批次号</th><th>农户</th><th>糖度</th><th>状态</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="messages" class="view-section">
+            <h2>✉️ 客户咨询留言管理</h2>
+            <div id="msgTools" style="display:none; margin-bottom:15px;">
+                <button class="btn-danger" onclick="deleteSelectedMsgs()">🗑️ 批量删除选中留言</button>
+            </div>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="super-col" style="display:none"><input type="checkbox" onclick="toggleAll('msg', this)"></th>
+                            <th>留言时间</th><th>姓名</th><th>电话</th><th>邮箱</th><th>内容</th><th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="msgBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="settings" class="view-section">
+            <h2>⚙️ 系统设置中心</h2>
+            <div class="card" style="max-width:400px;">
+                <h3>🔑 修改管理密码</h3>
+                <input type="password" id="oldP" placeholder="原密码">
+                <input type="password" id="newP" placeholder="新密码">
+                <button class="btn-primary" onclick="changeP()">保存修改</button>
+            </div>
+            <div class="card" style="border-color:#fca5a5; max-width:400px;">
+                <h3 style="color:#dc2626">🛠️ 开发者超管权限</h3>
+                <input type="password" id="sCode" placeholder="输入超管授权码">
+                <button id="sBtn" class="btn" style="background:#475569; color:white;" onclick="activateSuper()">激活超管特权</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

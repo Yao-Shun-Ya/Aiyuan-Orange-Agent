@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱媛橙代理人 | 数智助农·青春先行</title>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <nav class="glass-nav">
+        <a href="#" class="logo"><b>🍊 爱媛代理人</b></a>
+        <div class="nav-links" id="navLinks">
+            <a href="#origin" onclick="toggleMenu()">产地溯源</a>
+            <a href="#quality" onclick="toggleMenu()">数智品控</a>
+            <a href="#verify" onclick="toggleMenu()">立即验真</a>
+            <a href="#contact" onclick="toggleMenu()">助农合作</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 data-aos="fade-up">爱媛 28 号 · 红美人</h1>
+            <p data-aos="fade-up" data-aos-delay="100">一口红美人，十分助农心</p>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <a href="#verify" class="hero-btn">查询溯源档案</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="origin" class="section">
+        <div class="grid-2">
+            <div class="text-box" data-aos="fade-right">
+                <span class="section-tag">源自四川合江</span>
+                <h2>北纬 28° 的自然馈赠。</h2>
+                <p>在望龙镇的红土地上，每一颗爱媛橙都经历了漫长的自然挂果。充足的日照与纯净的水源，孕育出了如细沙般绵密的果肉口感。我们通过电商模式创新，将这份源自乡野的甘甜直接送达您的舌尖，助力乡村经济振兴。</p>
+            </div>
+            <div class="image-box" data-aos="fade-left">
+                <img src="img/origin.jpg" alt="合江望龙镇橘园">
+            </div>
+        </div>
+    </section>
+
+    <section id="quality" class="section bg-gray">
+        <div class="grid-2 reverse">
+            <div class="text-box" data-aos="fade-left">
+                <span class="section-tag">AI 无感体检</span>
+                <h2>不仅仅是甜，更是标准。</h2>
+                <p>采用非破坏性激光传感器，对每一颗红美人进行智能分选。每一筐果品的糖度、克重等核心数据，均会实时生成区块链哈希值（Hash）并上链存证。用数学规律代替人工承诺，打造真正防伪的数字身份证。</p>
+            </div>
+            <div class="image-box" data-aos="fade-right">
+                <img src="img/quality.jpg" alt="数智化品控">
+            </div>
+        </div>
+    </section>
+
+    <section id="verify" class="query-section">
+        <div class="glass-card" data-aos="zoom-in">
+            <h2>解锁数智档案</h2>
+            <p>输入包装盒盖上的批次 ID，查看专属区块链存证证书</p>
+            <div class="input-group">
+                <input type="text" id="batchId" placeholder="例如: WL2026-02">
+                <button onclick="goVerify()">立即查询</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-header" data-aos="fade-up">
+            <h2>联系我们</h2>
+            <p>无论是批量订购还是助农业务探讨，我们都在这里等您。</p>
+        </div>
+        <form class="contact-form" id="contactForm" onsubmit="submitContact(event)" data-aos="fade-up" data-aos-delay="100">
+            <input type="text" id="c_name" placeholder="您的姓名" required>
+            <input type="text" id="c_phone" placeholder="手机号码" required>
+            <input type="email" id="c_email" placeholder="电子邮箱 (可选)">
+            <textarea id="c_msg" rows="4" placeholder="您想对我们说的话..." required></textarea>
+            <button type="submit" id="submitBtn">发送信息</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Designed with <span class="heart">♥</span> for Yupu Huang</p>
+        <p>© 2026 成都银杏酒店管理学院 · 青春助农团队</p>
+        <p>基于“爱媛橙代理人”数智溯源系统运行</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

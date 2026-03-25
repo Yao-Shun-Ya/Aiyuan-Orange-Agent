@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>爱媛橙代理人 - 数字化溯源存证</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    
+    <link rel="stylesheet" href="css/verify.css">
+</head>
+<body>
+
+    <div id="tsparticles"></div>
+
+    <div class="app-container">
+        <div class="brand-header">
+            <h1>爱媛橙代理人</h1>
+            <p>合江县望龙镇·青春助农团队</p>
+        </div>
+
+        <div id="statusScreen">
+            <div class="loader"></div>
+            <p id="statusText">正在连接区块链存证中心...</p>
+        </div>
+
+        <div id="certCard" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+            <div class="card-header">
+                <span class="batch-tag" id="res_id"></span>
+                <span class="ver-icon">🛡️</span>
+                <h2>数智溯源存证证书</h2>
+            </div>
+            
+            <div class="card-body">
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <label>👩‍🌾 合作农户</label>
+                        <span class="val" id="res_farmer"></span>
+                    </div>
+                    <div class="metric-box">
+                        <label>⚖️ AI分选重量</label>
+                        <span class="val" id="res_weight_val"></span><span class="unit" id="res_weight_unit"></span>
+                    </div>
+                </div>
+
+                <div class="sugar-gauge">
+                    <div class="sugar-gauge-header">
+                        <label>☀️ 智能糖度测定 (Brix)</label>
+                        <span class="sugar-val"><span id="res_sugar"></span>°</span>
+                    </div>
+                    <div class="gauge-bar-container">
+                        <div class="gauge-bar-fill" id="sugarBar"></div>
+                    </div>
+                    <div class="gauge-labels">
+                        <span>标准(11°)</span>
+                        <span>特级(14°+)</span>
+                    </div>
+                </div>
+
+                <div class="info-list">
+                    <div class="info-item">
+                        <label>📍 产地来源</label>
+                        <span>四川合江县望龙镇</span>
+                    </div>
+                    <div class="info-item">
+                        <label>🛡️ 存证状态</label>
+                        <span style="color:var(--green)">● 已上链不可篡改</span>
+                    </div>
+                    <div class="info-item hash">
+                        <label>🔗 区块链存证哈希 (Hash)</label>
+                        <span id="res_hash"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <p class="slogan">“一口红美人，十分助农心”</p>
+                <p class="team">Yupu Huang提供技术支持</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
+    
+    <script src="js/verify.js"></script>
+</body>
+</html>
